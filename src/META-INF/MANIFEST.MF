@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Main-Class: com.lu.VueAdminApplication
+Class-Path: spring-boot-starter-jdbc-2.3.1.RELEASE.jar jackson-datatype-
+ jsr310-2.11.0.jar spring-webmvc-5.2.7.RELEASE.jar spring-boot-starter-2
+ .3.1.RELEASE.jar spring-web-5.2.7.RELEASE.jar jackson-core-2.11.0.jar l
+ ogback-core-1.2.3.jar mybatis-spring-2.0.3.jar jakarta.annotation-api-1
+ .3.5.jar spring-tx-5.2.7.RELEASE.jar spring-beans-5.2.7.RELEASE.jar lom
+ bok-1.18.10.jar HikariCP-3.4.5.jar jul-to-slf4j-1.7.30.jar mybatis-spri
+ ng-boot-starter-2.1.1.jar spring-core-5.2.7.RELEASE.jar spring-boot-sta
+ rter-json-2.3.1.RELEASE.jar spring-jdbc-5.2.7.RELEASE.jar jackson-datat
+ ype-jdk8-2.11.0.jar spring-boot-autoconfigure-2.3.1.RELEASE.jar jakarta
+ .el-3.0.3.jar snakeyaml-1.26.jar spring-boot-2.3.1.RELEASE.jar jackson-
+ module-parameter-names-2.11.0.jar log4j-to-slf4j-2.13.3.jar tomcat-embe
+ d-websocket-9.0.36.jar logback-classic-1.2.3.jar tomcat-embed-core-9.0.
+ 36.jar mybatis-spring-boot-autoconfigure-2.1.1.jar spring-context-5.2.7
+ .RELEASE.jar spring-aop-5.2.7.RELEASE.jar slf4j-api-1.7.30.jar jackson-
+ annotations-2.11.0.jar spring-expression-5.2.7.RELEASE.jar spring-boot-
+ starter-web-2.3.1.RELEASE.jar mysql-connector-java-8.0.20.jar spring-bo
+ ot-starter-logging-2.3.1.RELEASE.jar jackson-databind-2.11.0.jar mybati
+ s-3.5.3.jar log4j-api-2.13.3.jar spring-jcl-5.2.7.RELEASE.jar spring-bo
+ ot-starter-tomcat-2.3.1.RELEASE.jar
+

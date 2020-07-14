@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定的一个对应的Dao/Mapper接口-->
+<mapper namespace="com.lu.mapper.LoginMapper">
+    <resultMap id="menuMap" type="Menu">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="authName" jdbcType="VARCHAR" property="authName"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <collection property="menuChildren" column="id" javaType="ArrayList" ofType="MenuChildren"
+                    select="queryMenuChildren">
+            <result column="cid" jdbcType="INTEGER" property="cid"/>
+            <result column="authName" jdbcType="VARCHAR" property="authName"/>
+            <result column="path" jdbcType="VARCHAR" property="path"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="menuChildrenMap" type="MenuChildren">
+        <result column="cid" jdbcType="INTEGER" property="cid"/>
+        <result column="authName" jdbcType="VARCHAR" property="authName"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+    </resultMap>
+
+
+    <select id="queryUserList" resultType="User">
+        select id,username,password from user where username=#{username}
+    </select>
+
+    <select id="queryMenu" resultMap="menuMap">
+        select * from menu
+    </select>
+    <select id="queryMenuChildren" resultMap="menuChildrenMap">
+        select m.cid,m.authname,m.path from menuchildren m where id=#{id}
+    </select>
+
+    <!--分页查询-->
+    <select id="queryPage" resultType="User">
+        select * from user limit #{current},#{limit}
+    </select>
+
+    <!--修改员工-->
+    <select id="updateUser" parameterType="User" resultType="Integer">
+        update user
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="state != null">state = #{state}</if>
+        </set>
+        where id = #{id}
+    </select>
+
+
+</mapper>
