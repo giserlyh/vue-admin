@@ -20,6 +20,9 @@ public interface LoginMapper {
     List<User> queryPage(int current,int limit);
 
     //修改参数
-    Integer updateUser(User user);
+    void updateUser(User user);
+
+    //增加接口
+    void addUser(User user);
 
 }

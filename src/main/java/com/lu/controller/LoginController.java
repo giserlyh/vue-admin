@@ -7,6 +7,7 @@ import com.lu.pojo.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -60,18 +61,24 @@ public class LoginController {
 
     @ApiOperation(value = "修改")
     @PutMapping("/update")
-    public Integer updateUser(User user){
-        Integer i = loginMapper.updateUser(user);
-        return i;
+    public R updateUser(User user){
+        loginMapper.updateUser(user);
+        return R.ok();
 
     }
 
     @ApiOperation(value = "增加")
+    @PostMapping("/add")
+    public R addUser(@RequestBody User user){
+        loginMapper.addUser(user);
+        return R.ok();
+    }
+/*    @ApiOperation(value = "增加")
     @PutMapping("/update")
     public Integer addUser(User user){
         Integer i = loginMapper.updateUser(user);
         return i;
 
-    }
+    }*/
 
 }
