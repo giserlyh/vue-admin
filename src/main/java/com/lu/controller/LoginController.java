@@ -66,7 +66,7 @@ public class LoginController {
 
     }
 
-    @ApiOperation(value = "增加")
+    @ApiOperation(value = "增加了")
     @PutMapping("/update")
     public Integer addUser(User user){
         Integer i = loginMapper.updateUser(user);
