@@ -3,7 +3,6 @@ package com.lu.controller;
 import com.lu.common.R;
 import com.lu.mapper.LoginMapper;
 import com.lu.pojo.Menu;
-import com.lu.pojo.MenuChildren;
 import com.lu.pojo.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
