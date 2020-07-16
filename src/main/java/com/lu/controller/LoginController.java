@@ -73,12 +73,12 @@ public class LoginController {
         loginMapper.addUser(user);
         return R.ok();
     }
-/*    @ApiOperation(value = "增加")
-    @PutMapping("/update")
-    public Integer addUser(User user){
-        Integer i = loginMapper.updateUser(user);
-        return i;
 
-    }*/
+    @ApiOperation(value = "根据id进行查询")
+    @GetMapping("/addById/{id}")
+    public R selectUser(@PathVariable int id){
+        List<User> users = loginMapper.queryUserById(id);
+        return R.ok().data("users",users);
+    }
 
 }

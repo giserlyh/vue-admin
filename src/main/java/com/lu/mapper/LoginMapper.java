@@ -25,4 +25,7 @@ public interface LoginMapper {
     //增加接口
     void addUser(User user);
 
+    //根据id进行查询
+    List<User> queryUserById(int id);
+
 }

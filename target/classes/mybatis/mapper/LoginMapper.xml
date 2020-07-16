@@ -56,4 +56,9 @@
         insert into user values(#{id},#{userName},#{passWord},#{name},#{email},#{phone},#{role},#{state})
     </insert>
 
+    <!--根据id查询-->
+    <select id="queryUserById" resultType="User">
+        select * from user where id = #{id}
+    </select>
+
 </mapper>
