@@ -22,19 +22,19 @@ public class LoginController {
 
     @ApiOperation(value = "登录")
     @PostMapping("/login")
-    public R login(@RequestBody Map<String, String> person){
+    public R login(@RequestBody Map<String, String> person) {
         String username = person.get("username");
         List<User> users = loginMapper.queryUserList(username);
-        int password =Integer.parseInt(person.get("password"));
+        int password = Integer.parseInt(person.get("password"));
         System.out.println(users);
-        if (users.size()>0){
-            int Cpassword =Integer.parseInt(users.get(0).getPassWord());
-            if(password==Cpassword){
-                return R.ok().data("token","token"+username+password);
-            }else {
+        if (users.size() > 0) {
+            int Cpassword = Integer.parseInt(users.get(0).getPassWord());
+            if (password == Cpassword) {
+                return R.ok().data("token", "token" + username + password);
+            } else {
                 return R.error();
             }
-        }else {
+        } else {
             return R.error();
         }
     }
@@ -42,26 +42,26 @@ public class LoginController {
 
     @ApiOperation(value = "菜单")
     @GetMapping("/menu")
-    public R Menu(){
+    public R Menu() {
         List<Menu> menus = loginMapper.queryMenu();
-        return R.ok().data("items",menus);
+        return R.ok().data("items", menus);
     }
 
     @ApiOperation(value = "分页")
     @GetMapping("/page/{current}/{limit}")
-    public R pageList(@PathVariable int current,@PathVariable int limit){
+    public R pageList(@PathVariable int current, @PathVariable int limit) {
         int total = 0;
-        List<User> users = loginMapper.queryPage(current-1, limit);
+        List<User> users = loginMapper.queryPage(current - 1, limit);
         List<User> users1 = loginMapper.queryPage(0, 1000000);
         for (int i = 0; i < users1.size(); i++) {
             total++;
         }
-        return R.ok().data("total",total).data("pagenum",current).data("users",users);
+        return R.ok().data("total", total).data("pagenum", current).data("users", users);
     }
 
     @ApiOperation(value = "修改")
     @PutMapping("/update")
-    public R updateUser(User user){
+    public R updateUser(@RequestBody User user) {
         loginMapper.updateUser(user);
         return R.ok();
 
@@ -69,16 +69,23 @@ public class LoginController {
 
     @ApiOperation(value = "增加")
     @PostMapping("/add")
-    public R addUser(@RequestBody User user){
+    public R addUser(@RequestBody User user) {
         loginMapper.addUser(user);
         return R.ok();
     }
 
     @ApiOperation(value = "根据id进行查询")
     @GetMapping("/addById/{id}")
-    public R selectUser(@PathVariable int id){
+    public R selectUser(@PathVariable int id) {
         List<User> users = loginMapper.queryUserById(id);
-        return R.ok().data("users",users);
+        return R.ok().data("users", users);
+    }
+
+    @ApiOperation(value = "根据id进行删除")
+    @DeleteMapping("/deleteById/{id}")
+    public R deleteUser(@PathVariable int id) {
+        loginMapper.deleteById(id);
+        return R.ok();
     }
 
 }

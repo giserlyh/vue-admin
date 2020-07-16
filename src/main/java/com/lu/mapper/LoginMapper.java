@@ -28,4 +28,7 @@ public interface LoginMapper {
     //根据id进行查询
     List<User> queryUserById(int id);
 
+    //删除接口
+    void deleteById(int id);
+
 }
